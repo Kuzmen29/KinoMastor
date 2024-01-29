@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./reset.scss";
+@import url(./fonts.scss);
+
+// .body {
+//     font-family: "WaybulooArial", sans-serif;
+// }
+:root {
+    --main-backgroundColor: brown;
+}
+
+.app {
+    margin-bottom: 300px;
+}
+.input {
+    height: 2.5rem;
+    width: 20rem;
+
+    border: 2px solid brown;
+    border-radius: 20px;
+    padding-left: 15px;
+
+    font-size: 1.2rem;
+}
+
+.button {
+    padding: 10px 15px;
+
+    border: 1px solid #a52a2a;
+    border-radius: 20px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    color: rgb(165, 42, 42);
+
+    &:hover {
+        background-color: rgb(165, 42, 42);
+        color: white;
+    }
+
+    &_isChoice {
+        background-color: rgb(165, 42, 42);
+        color: white;
+    }
+}
+
+.border {
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #a52a2a;
+}
+
+.field {
+    border-radius: 20px;
+    border: 2px solid var(--main-backgroundColor);
+    padding: 20px;
+}
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 1000px) {
+}
+@media (max-width: 720px) {
+    :root {
+        font-size: 14px;
+    }
+    .header {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+    }
+    .app__header_background {
+        flex-direction: column;
+    }
+    .film {
+        display: flex !important;
+        flex-direction: column;
+    }
+}
+@media (max-width: 500px) {
+    :root {
+        font-size: 12px;
+    }
+}

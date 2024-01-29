@@ -1,0 +1,22 @@
+<div class="header-settings">
+    <div class="header-login" (click)="toUserOrLogin()">
+        
+        <img src="{{ user && user.userAvatar ? user.userAvatar : '../../assets/images/user.svg' }}" alt="" class="header-login__image" >
+
+        <div class="header-login__wrapper">
+            <h1 class="header-login__title header-settings__title">{{user ? user.userNickname : 'Войти' }} </h1>
+            <img click-stop-propagation *ngIf="login" src="../../assets/images/cross.svg" class="header-login__close" (click)="logout()">
+        </div>
+    </div>
+
+    <div class="header-registration" (click)="toRegistration()">
+        
+        <img src="../../assets/images/registration.svg" alt="" class="header-registration__image" >
+
+        <!-- <div class="header-registration__wrapper"> -->
+            <h1 class="header-login__title header-settings__title">Регистрация</h1>
+        <!-- </div> -->
+    </div>
+
+
+</div>

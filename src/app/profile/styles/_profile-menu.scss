@@ -1,0 +1,21 @@
+.profile-menu {
+    padding: 15px;
+
+    background-color: rgb(165, 42, 42, 0.3);
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        
+    }
+
+    &__item {
+        padding: 5px 10px;
+
+        color: brown;
+
+        cursor: pointer;
+    }
+
+}

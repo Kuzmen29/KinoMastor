@@ -1,0 +1,33 @@
+
+<section *ngIf="success" class="registration__success">
+    <success-login [message]="successMessage"></success-login>
+</section>
+
+<section *ngIf="!success" class="registration">
+    <div class="registration__choice">
+        <button  class="button registration__button" (click)="toLogin()">Вход</button>
+        <button type="button" class="button registration__button button_isChoice">Регистрация</button>
+    </div>
+
+    <form [formGroup]="myForm" (ngSubmit)="submit()" class="registration__form">
+
+        <input formControlName="userNickname" placeholder="Введите псевдоним" type="text" class="input registration__name" >
+        <div *ngIf=" myForm.controls['userNickname'].invalid && myForm.controls['userNickname'].touched">Не указан псевдоним</div>
+        <div *ngIf="isNicknameTaken">Псевдоним используется другим пользователем</div>
+        
+        <input formControlName="userEmail" type="email" placeholder="Введите email" class="input registration__name" >
+        <div *ngIf="myForm.controls['userEmail'].touched && myForm.controls['userEmail'].value==='' " class="alert">Не указан Email</div>
+        <div *ngIf=" myForm.controls['userEmail'].invalid && myForm.controls['userEmail'].touched && myForm.controls['userEmail'].value!=='' " class="alert">Неправильно указан Email</div>
+
+        <input formControlName="userPassword" type="password" placeholder="Введите пароль" class="input registration__name" >
+        <div *ngIf=" myForm.controls['userPassword'].invalid && myForm.controls['userPassword'].touched" class="alert">Неправильно указан пароль</div>
+
+
+        <input formControlName="userPasswordConfirm" type="password" class="input registration__name" placeholder="Повторите пароль">
+        <div *ngIf=" myForm.controls['userPasswordConfirm'].invalid && myForm.controls['userPasswordConfirm'].touched" class="alert">Пароли не совпадают</div>
+
+        <button type="submit" [disabled]="myForm.invalid" class="button ">Зарегистрироваться</button>
+        <div *ngIf="myForm.invalid" class="alert">Заполните форму корректно!</div>
+
+    </form>
+</section>

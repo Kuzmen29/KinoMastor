@@ -1,0 +1,23 @@
+
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin: 0 auto;
+    width: 20rem;
+
+    &__choice {
+        display: flex;
+        gap: 10px;
+    }
+    &__button {
+        flex: 1 1 0px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,18 @@
+
+<section class="profile">
+    <aside class="profile__profile-menu profile-menu">
+        <ul class="profile-menu__list">
+            <li (click)="changeMenuItem(1)" class="profile-menu__item">Моя страница</li>
+            <li (click)="changeMenuItem(2)" class="profile-menu__item">Любимое</li>
+            <li (click)="changeMenuItem(3)" class="profile-menu__item">Посмотреть позже</li>
+        </ul>
+    </aside>
+    <div class="profile__profile-body profile-body">
+        <div class="profile-body__info" *ngIf="number==1">
+            Один
+        </div>
+        <div class="profile-body__kino-list" *ngIf="number == 2 || number == 3">
+            <kino-list [list]="list"></kino-list>
+        </div>
+    </div>
+</section>

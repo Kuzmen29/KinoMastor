@@ -1,0 +1,69 @@
+.home {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    &__title {
+        padding: 10px 20px;
+        font-size: 2.5rem;
+
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: brown;
+        text-shadow: 1px 1px 1px white,
+                    -1px 1px 1px white,
+                    1px -1px 1px white,
+                    -1px -1px 1px white,
+                    2px 2px 2px brown,
+                    -2px 2px 2px brown,
+                    2px -2px 2px brown,
+                    -2px -2px 2px brown;
+        letter-spacing: 5px;
+
+        border: 1px solid brown;
+        border-radius: 20px;
+    }
+}
+.news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__new {
+        padding: 20px;
+
+        width: 70%;
+
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+
+        border: 3px solid brown;
+        border-radius: 20px;
+
+        font-family: Georgia, 'Times New Roman', Times, serif;
+
+        cursor: pointer;
+    }
+    &__title {
+        padding: 5px 0;
+        
+        text-align: center;
+
+        font-size: 1.3rem;
+    }
+    &__pub-date {
+        padding: 5px 0;
+        
+        text-align: center;
+
+        font-size: 1.1rem;
+    }
+    &__description {
+        border-top: 3px dotted brown;
+
+        padding: 10px 0;
+        text-indent: 50px;
+
+        font-size: 1.2rem;
+    }
+}

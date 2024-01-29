@@ -1,0 +1,22 @@
+.requirement-authorization {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: rgb(255, 255, 255,0.8);
+    border: 1px solid var(--main-backgroundColor);
+    border-radius: 20px;
+
+    cursor: pointer;
+    &__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: brown;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,51 @@
+@use './styles/image';
+@use "./styles/_comments.scss";
+@use "./styles/_description.scss";
+@use "./styles/_film-info.scss";
+@use "./styles/_persons.scss";
+@use "./styles/_user-panel.scss";
+
+.film {
+
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-areas: 'image info'
+                         'user-panel info'
+                         'description description'
+                         'persons persons'
+                         'comments comments';
+    row-gap: 10px;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+    }
+    &__image {
+        grid-area: image;
+    }
+    &__user-panel {
+        grid-area: user-panel;
+
+        position: relative;
+    }
+
+    &__info {
+        grid-area: info;
+    }
+    
+    &__description {
+        grid-area: description;
+    }
+    &__persons {
+        grid-area: persons;
+    }
+    &__comments {
+        grid-area: comments;
+    }
+    
+}
+
+.justify-self_center {
+    justify-self: center;
+}

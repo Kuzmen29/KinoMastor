@@ -1,0 +1,119 @@
+.header {
+    padding: 15px;
+
+    display: grid;
+    grid-template-areas:
+        "logo settings"
+        "logo search"
+        "logo navigation";
+
+    width: 100%;
+
+    &__header-settings {
+        grid-area: settings;
+    }
+
+    &__logo {
+        grid-area: logo;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        cursor:pointer;
+    }
+    &__img {
+        width: 7.5rem;
+        padding: 5px;
+        background-color: white;
+        border-radius: 50%;
+    }
+    &__title {
+        color: white;
+        font-size: 2.5rem;
+        font-family: "WaybulooArial";
+
+        text-shadow:
+            2px 2px 1px brown,
+            -2px 2px 1px brown,
+            2px -2px 1px brown,
+            -2px -2px 1px brown;
+    }
+}
+
+.search {
+    grid-area: search;
+
+    justify-self: center;
+
+    padding: 10px;
+    display: flex;
+    align-items: center;
+
+    &__field {
+        min-height: 2.5rem;
+        width: 26rem;
+
+        border: 2px solid brown;
+        border-radius: 20px;
+        padding: 10px 0 10px 15px;
+
+        font-size: 1.2rem;
+    }
+    &__image {
+        
+    }
+    &__button {
+        margin-left: -70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+
+        cursor: pointer;
+    }
+    &__title {
+        color: white;
+        background-color: #a52a2a;
+        padding: 0 5px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+}
+
+.kino-navigation {
+    grid-area: navigation;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+
+    z-index: 1;
+
+    &__item {
+        padding: 10px 5px;
+        width: 13rem;
+
+        border: solid 1px;
+        border-radius: 20px;
+
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: bold;
+
+        box-shadow: 1px 1px 5px brown;
+        border-color: brown;
+
+        background-color: white;
+        color: brown;
+
+        &:hover {
+            background-color: rgb(238,144,134);
+            color: white;
+            font-weight: bold;
+            box-shadow: 1px 1px 20px #a52a2a;
+        }
+    }
+}

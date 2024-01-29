@@ -1,0 +1,26 @@
+<section class="kino-list">
+
+    <div class="kino-list__list">
+
+        <div class="kino-card" *ngFor="let card of list" (click)='toFilm(card.id)'>
+            
+            <h1 class="kino-card__title">{{card.name}}</h1>
+            <h1 class="kino-card__year">{{card.year}}</h1>
+            <div class="kino-card__genres">
+                <h1 *ngFor="let genre of card.genres">{{genre.name}}</h1>
+            </div>
+
+            <div class="kino-card__poster">
+                <img class="kino-card__image" *ngIf="(card.poster && card.poster.url); else unset" [src]='card.poster.url | safe'>
+                <ng-template #unset>
+                    <img class="kino-card__image" src="../../assets/images/noimage.svg">
+                </ng-template>
+            </div>
+            <div class="kino-card__rating">
+                Рейтинг {{card.rating['kp']}}
+            </div>
+
+        </div>
+    </div>
+
+</section>

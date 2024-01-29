@@ -1,0 +1,151 @@
+<section class="film">
+
+    <img class="film__image image"
+        src="{{film?.poster && film.poster?.url ? film.poster.url : '../../assets/images/noimage.svg'}}">
+
+    <div class="film__user-panel user-panel">
+
+        <requirement-authorization *ngIf="!user" (click)="toLogin()"></requirement-authorization>
+
+        <success *ngIf="user_panel__success" ></success>
+
+        <div class="user-panel__element" 
+            (click)="!(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id)) ? addFavoriteFilm(film.id, user!.userID) : 0">
+            <img class="user-panel__image" src="../../assets/images/heart.svg" alt="">
+            <h1 *ngIf="!(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id))" class="user-panel__title" >В любимое</h1>
+            <h1 *ngIf="(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id))" class="user-panel__title" >Уже в любимом</h1>
+        </div>
+        <div  class="user-panel__element"
+            (click)="!(user?.userWatchLater && user?.userWatchLater?.includes(film.id)) ? addWatchLater(film.id, user!.userID) : 0">
+            <img class="user-panel__image" src="../../assets/images/clock.svg" alt="">
+            <h1 *ngIf="!(user?.userWatchLater && user?.userWatchLater?.includes(film.id))" class="user-panel__title" >Посмотреть позже</h1>
+            <h1 *ngIf="(user?.userWatchLater && user?.userWatchLater?.includes(film.id))" class="user-panel__title" >Уже запланирован просмотр</h1>
+        </div>
+    </div>
+
+    <div class="film__info film-info">
+        <h1 class="film-info__name">{{film.name}}</h1>
+
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Год производства:</span>
+            <h1 class="film-info__year">
+                <span class="film-info__value-characteristic">{{film.year}}</span>
+            </h1>
+        </div>
+
+
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Страны: </span>
+            <div class="film-info__set-characteristic">
+                <h1 *ngFor="let country of film.countries">
+                    <span class="film-info__value-characteristic">{{country.name}}</span>
+                </h1>
+            </div>
+        </div>
+
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Жанры: </span>
+            <div class="film-info__set-characteristic film__genres">
+                <h1 class="film-info__genre" *ngFor="let genre of film.genres">
+                    <span class="film-info__value-characteristic">{{genre.name}}</span>
+                </h1>
+            </div>
+        </div>
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Режиссёры: </span>
+            <div class="film-info__set-characteristic">
+                <h1 class="" *ngFor="let director of film.directors">
+                    <span class="film-info__value-characteristic">{{director.name}}</span>
+                </h1>
+            </div>
+        </div>
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Сценаристы: </span>
+            <div class="film-info__set-characteristic">
+                <h1 *ngFor="let writer of film.writers">
+                    <span class="film-info__value-characteristic">{{writer.name}}</span>
+                </h1>
+            </div>
+        </div>
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Операторы: </span>
+            <div class="film-info__set-characteristic">
+                <h1 class="" *ngFor="let operator of film.operators">
+                    <span class="film-info__value-characteristic">{{operator.name}}</span>
+                </h1>
+            </div>
+        </div>
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Композиторы: </span>
+            <div class="film-info__set-characteristic">
+                <h1 class="" *ngFor="let composer of film.composers">
+                    <span class="film-info__value-characteristic">{{composer.name}}</span>
+                </h1>
+            </div>
+        </div>
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Время: </span>
+            <h1>
+                <span class="film-info__value-characteristic">{{film.movieLength ?? film.seriesLength}} минут</span>
+            </h1>
+        </div>
+
+        <div *ngIf="film.isSeries" class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Сезоны:</span>
+            <div class="film-info__set-characteristic film__seasonsInfo">
+                <div class="film-info__value-characteristic film__season" *ngFor="let seasonsInfo of film.seasonsInfo">
+                    <h1>{{seasonsInfo.number}}</h1>
+                    <h1>{{seasonsInfo.episodesCount}}</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="film-info__characteristic">
+            <span class="film-info__title-characteristic">Рейтинг:</span>
+            <div class="film-info__set-characteristic">
+                <div class="film-info__value-characteristic film-info__rating" *ngFor="let rating of film.ratingKeys">
+                    <h1>{{rating}}</h1>
+                    <h1>{{film.rating[rating]}}</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="film__description description">
+        {{film.description}}
+    </div>
+    <div class="film__persons persons">
+        <div class="film__person persons__person" *ngFor="let actor of film.actors">
+            <img src="{{actor.photo}}" class="persons__image">
+            <h1 class="persons__name">{{actor.name}}</h1>
+        </div>
+    </div>
+
+    <div class="film__comments comments">
+        <div class="field comments__comment" *ngFor="let comment of comments">
+            <div class="comments__wrapper">
+                <div class="comments__user">{{comment.userNickname}}</div>
+                <div class="comments__time">
+                    {{ createDate(comment.date) | date: 'dd.MM.yyyy HH:mm' }}
+                </div>
+            </div>
+            <hr class="comments__hr">
+            <div class="comments__text">
+                {{comment.comment}}
+            </div>
+            
+        </div>
+
+        <div class="comments__add">
+            <requirement-authorization *ngIf="!user" (click)="toLogin()"></requirement-authorization>
+            <success *ngIf="user_panel__success" ></success>
+
+            <textarea placeholder="Введите комментарий" [(ngModel)]="comment" class="field comments__add-field">
+
+            </textarea>
+            <button (click)="addComment()" class="button comments__add-button">Оставить комментарий</button>
+        </div>
+
+    </div>
+</section>

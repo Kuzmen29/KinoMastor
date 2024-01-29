@@ -1,0 +1,23 @@
+.success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(255, 255, 255,0.8);
+
+    &__image {
+        
+    }
+    &__message{
+        font-size: 1.5rem;
+        color: green;
+        font-weight: 700;
+    }
+}

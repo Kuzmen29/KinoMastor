@@ -1,0 +1,27 @@
+.persons {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow:auto;
+    
+    &__person {
+        padding: 15px;
+        flex-shrink: 0;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__image {
+        height: 11rem;
+        border-radius: 20px;
+    }
+    &__name {
+        padding: 5px 10px;
+        background-color: brown;
+        color: white;
+
+        border-radius: 20px;
+    }
+}

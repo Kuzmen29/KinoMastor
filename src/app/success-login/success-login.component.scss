@@ -1,0 +1,13 @@
+.success-login {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    &__message {
+        text-align: center;
+
+        color: brown;
+        font-size: 2rem;
+    }
+}

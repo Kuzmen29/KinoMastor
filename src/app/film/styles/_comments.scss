@@ -1,0 +1,43 @@
+.comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 0.9rem;
+
+    
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    &__comment {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 50rem;
+    }
+    &__hr {
+        height: 3px;
+        width: 100%;
+        background-color: var(--main-backgroundColor);
+    }
+    &__text {
+        text-indent: 50px;
+    }
+
+    &__add {
+        padding: 15px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        &-field {
+            width: 29rem;
+            height: 10rem;
+        }
+    }
+}
