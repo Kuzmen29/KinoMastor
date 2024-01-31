@@ -4,7 +4,7 @@
     flex-direction: column;
     gap: 10px;
 
-    margin: 0 auto;
+    margin: 0 auto; // А вот тут как раз нарушение БЭМа
     width: 20rem;
 
     &__choice {

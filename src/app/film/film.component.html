@@ -1,25 +1,29 @@
 <section class="film">
 
     <img class="film__image image"
-        src="{{film?.poster && film.poster?.url ? film.poster.url : '../../assets/images/noimage.svg'}}">
+         [src]="film?.poster?.url ? film.poster.url : '../../assets/images/noimage.svg'">
 
     <div class="film__user-panel user-panel">
 
         <requirement-authorization *ngIf="!user" (click)="toLogin()"></requirement-authorization>
 
-        <success *ngIf="user_panel__success" ></success>
+        <success *ngIf="user_panel__success"></success>
 
-        <div class="user-panel__element" 
-            (click)="!(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id)) ? addFavoriteFilm(film.id, user!.userID) : 0">
+        <div class="user-panel__element"
+             (click)="!(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id)) ? addFavoriteFilm(film.id, user!.userID) : 0">
             <img class="user-panel__image" src="../../assets/images/heart.svg" alt="">
-            <h1 *ngIf="!(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id))" class="user-panel__title" >В любимое</h1>
-            <h1 *ngIf="(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id))" class="user-panel__title" >Уже в любимом</h1>
+            <h1 *ngIf="!(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id))"
+                class="user-panel__title">В любимое</h1>
+            <h1 *ngIf="(user?.userFavoriteFilms && user?.userFavoriteFilms?.includes(film.id))"
+                class="user-panel__title">Уже в любимом</h1>
         </div>
-        <div  class="user-panel__element"
-            (click)="!(user?.userWatchLater && user?.userWatchLater?.includes(film.id)) ? addWatchLater(film.id, user!.userID) : 0">
+        <div class="user-panel__element"
+             (click)="!(user?.userWatchLater && user?.userWatchLater?.includes(film.id)) ? addWatchLater(film.id, user!.userID) : 0">
             <img class="user-panel__image" src="../../assets/images/clock.svg" alt="">
-            <h1 *ngIf="!(user?.userWatchLater && user?.userWatchLater?.includes(film.id))" class="user-panel__title" >Посмотреть позже</h1>
-            <h1 *ngIf="(user?.userWatchLater && user?.userWatchLater?.includes(film.id))" class="user-panel__title" >Уже запланирован просмотр</h1>
+            <h1 *ngIf="!(user?.userWatchLater && user?.userWatchLater?.includes(film.id))" class="user-panel__title">
+                Посмотреть позже</h1>
+            <h1 *ngIf="(user?.userWatchLater && user?.userWatchLater?.includes(film.id))" class="user-panel__title">Уже
+                запланирован просмотр</h1>
         </div>
     </div>
 
@@ -122,6 +126,7 @@
         </div>
     </div>
 
+    <!-- Старайся разбивать большой компонент на несколько маленьких. Вот, например, это отличный кандидат-->
     <div class="film__comments comments">
         <div class="field comments__comment" *ngFor="let comment of comments">
             <div class="comments__wrapper">
@@ -134,12 +139,12 @@
             <div class="comments__text">
                 {{comment.comment}}
             </div>
-            
+
         </div>
 
         <div class="comments__add">
             <requirement-authorization *ngIf="!user" (click)="toLogin()"></requirement-authorization>
-            <success *ngIf="user_panel__success" ></success>
+            <success *ngIf="user_panel__success"></success>
 
             <textarea placeholder="Введите комментарий" [(ngModel)]="comment" class="field comments__add-field">
 

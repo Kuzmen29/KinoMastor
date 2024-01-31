@@ -9,13 +9,14 @@
     
     <div class="search" (keyup.enter)="search()">
         <input type="text" [(ngModel)]="condition" class="search__field">
-        <div class="search__button"  (click)="search()">
+        <div class="search__button"  (click)="search()"> <!-- Если есть обработчик клика, то возможно это должна быть кнопка-->
             <img src="../../assets/images/cinemaSearch.svg" alt="search">
             <h1 class="search__title">Поиск</h1>
         </div>
     </div>
 
     <div class="kino-navigation">
+        <!-- Кнопки - для действий, ссылки - для навигации. Тут у тебя навигация => должна быть ссылка -->
         <button type="button" routerLink="/kino/newFilms" class="kino-navigation__item">Новинки</button>
         <button type="button" routerLink="/kino/topRussian" class="kino-navigation__item">Топ российского кино</button>
         <button type="button" routerLink="/kino/topForeign" class="kino-navigation__item">Топ зарубежного кино</button>

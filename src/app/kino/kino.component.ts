@@ -9,12 +9,13 @@ import { KinopoiskAPIService } from '../kinopoisk-api.service';
     templateUrl: './kino.component.html',
     styleUrls: ['./kino.component.scss']
 })
-export class KinoComponent {
+export class KinoComponent { // Название чего либо транслитом (kino, mashina, forma, etc) - это плохая практика, не только во фронте. Используй английские слова (переводчик в помощь)
     list : any;
     type = ''
 
     constructor(private route: ActivatedRoute, private kinopoiskService: KinopoiskAPIService,
         public appService: AppService, private router: Router) {
+        // Конструктор не пригоден для написания в нем сложной логики (он имеет некоторые ограничения), лучше всю "инициализационную" логику писать в ngOnInit
         this.route.paramMap.pipe(
             switchMap(params => params.getAll('type'))
         )
