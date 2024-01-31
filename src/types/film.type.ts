@@ -1,12 +1,13 @@
 export interface Country {
+    // не обязательно добавлять ковычки к названию свойства
     "name" : string
 }
 export interface Genre {
     "name" : string
 }
 export interface Rating {
-    [index:string] : number | null
-    "kp": number,
+    [index:string] : number | null// Такое свойство должно быть в конце интерфейса иначе могут быть проблемы
+    "kp": number,// Ставь точку с запятной для разделения свойств
     "imdb": number,
     "filmCritics": number,
     "russianFilmCritics": number,

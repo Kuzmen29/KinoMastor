@@ -5,7 +5,7 @@ import { localhost, port } from 'src/paths/localhost';
     providedIn: 'root'
 })
 export class KinopoiskAPIService {
-
+    /* Хорошо сделал*/
     constructor(private http: HttpClient) { }
 
     getKinoBySearch(condition: string) {
